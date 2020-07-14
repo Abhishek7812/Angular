@@ -1,0 +1,25 @@
+import {Component} from '@angular/core';
+import { ItemsService } from './item.service';
+
+@Component({
+
+    selector: 'item',
+    template: `<h1>{{title}}</h1>
+  
+    <ul>
+      <li *ngFor="let stock as stocks">
+         {(type)}
+      </li>
+    </ul>`
+    
+})
+
+export class TypeComponent {
+  title = 'list os Stocks';
+ // stocks = ['apple','ibm','google'];
+  item;
+
+  constructor(itemService : ItemsService){
+      this.item = itemService.getItem();
+  }
+}
