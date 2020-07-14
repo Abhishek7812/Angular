@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+import { ItemService} from '../item.service';
+
+@Component({
+  selector: 'app-bank',
+  templateUrl: './bank.component.html',
+  styleUrls: ['./bank.component.css']
+})
+export class BankComponent implements OnInit {
+
+  constructor(private itemService:ItemService) { }
+
+  ngOnInit(): void {
+  }
+
+  getAllItem(){
+  	this.itemService.getItemAPI()
+  		.subscribe(
+          data =>console.log(JSON.stringify(data)) ,
+          error =>console.log('Server Error')
+  		);	
+  	
+  }
+
+}
